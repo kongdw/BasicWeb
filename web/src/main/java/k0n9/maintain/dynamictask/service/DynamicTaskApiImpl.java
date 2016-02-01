@@ -31,7 +31,7 @@ import java.util.concurrent.ScheduledFuture;
 @Service
 public class DynamicTaskApiImpl implements DynamicTaskApi {
 
-    private final Logger logger = LoggerFactory.getLogger("es-error");
+    private final Logger logger = LoggerFactory.getLogger("k0n9-error");
 
     private Map<Long, ScheduledFuture<?>> taskMap = Maps.newConcurrentMap();
 

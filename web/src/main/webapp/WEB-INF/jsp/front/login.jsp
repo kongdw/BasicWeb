@@ -15,16 +15,14 @@
       <k:BackURL hiddenInput="true"/>
       <!-- Title -->
       <h3 class="form-title">用户登录</h3>
-
       <!-- Error Message -->
-
       <k:showMessage></k:showMessage>
       <!-- Input Fields -->
       <div class="form-group">
         <!--<label for="username">Username:</label>-->
         <div class="input-icon">
           <i class="icon-user"></i>
-          <input type="text" id="username" name="username" class="form-control" placeholder="用户名" autofocus="autofocus" data-rule-required="true" data-msg-required="请输入用户名"/>
+          <input type="text" id="username" name="username" value="${param.username}" class="form-control" placeholder="用户名" autofocus="autofocus" data-rule-required="true" data-msg-required="请输入用户名"/>
         </div>
       </div>
       <div class="form-group">
@@ -39,8 +37,8 @@
       <div class="form-group">
         <div class="input-icon">
           <i class="icon-qrcode"></i>
-          <input type="text" id="jcaptchaCode" name="jcaptchaCode" style="display:inline;" class="form-control input-width-medium " placeholder="验证码" data-rule-required="true" data-msg-required="请输入验证码">
           <img class="jcaptcha-btn jcaptcha-img pull-right" src="${ctx}/jcaptcha.jpg" title="点击更换验证码">
+          <input type="text" id="jcaptchaCode" name="jcaptchaCode" style="display:inline;" class="form-control input-width-medium " placeholder="验证码" data-rule-required="true" data-msg-required="请输入验证码"/>
         </div>
       </div>
       </c:if>
@@ -83,6 +81,6 @@
       <%--"url": "${ctx}/jcaptcha-validate",--%>
       <%--"alertTextLoad": "* 正在验证，请稍等。。。"--%>
     <%--};--%>
-//    $("#loginForm").validationEngine({scroll: false});
+    $("#loginForm").validationEngine({scroll: false});
   });
 </script>

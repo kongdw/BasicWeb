@@ -27,7 +27,7 @@ public class UserRealm extends AuthorizingRealm {
     @Autowired
     private UserAuthService userAuthService;
 
-    private static final Logger log = LoggerFactory.getLogger("es-error");
+    private static final Logger log = LoggerFactory.getLogger("k0n9-error");
 
     @Autowired
     public UserRealm(ApplicationContext ctx) {
