@@ -1,100 +1,88 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/WEB-INF/jsp/common/taglibs.jspf" %>
-<k:contentHeader title="用户登录 Easy-Scaffold脚手架" index="true"/>
-<div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-        <a class="brand" href="#">&nbsp;&nbsp;es脚手架</a>
-        <ul class="nav">
-            <li><a href="http://sishuok.com" target="_blank">私塾在线</a></li>
-            <li class="active"><a href="#">登录</a></li>
-            <li><a href="http://jinnianshilongnian.iteye.com" target="_blank">我的博客</a></li>
-            <li><a href="https://github.com/zhangkaitao/es" target="_blank">github</a></li>
-        </ul>
-        <a class="brand" style="float: right" href="mailto:zhangkaitao0503@gmail.com" target="_blank">&nbsp;&nbsp;问题反馈</a>
-    </div>
+<k:contentHeader title="用户登录" index="true"/>
+<!-- Logo -->
+<div class="logo">
+  <img src="${ctx}/static/images/logo.png" alt="logo"/>
+  <strong>###</strong>管理系统
 </div>
+<!-- /Logo -->
+<!-- Login Box -->
+<div class="box">
+  <div class="content">
+    <!-- Login Formular -->
+    <form id="loginForm" class="form-vertical login-form" method="post">
+      <k:BackURL hiddenInput="true"/>
+      <!-- Title -->
+      <h3 class="form-title">用户登录</h3>
 
-<div class="container">
-    <div class="login">
-        <div class="title">用户登录</div>
-        <div class="form">
+      <!-- Error Message -->
 
-            <div style="margin-right: 30px;">
-                <k:showMessage></k:showMessage>
-            </div>
-
-            <form id="loginForm" method="post" class="form-horizontal">
-            <k:BackURL hiddenInput="true"/>
-            <div class="control-group">
-                <label for="username">用户名、邮箱或手机号</label>
-                <div class="input-prepend">
-                    <span class="add-on icon-user"></span>
-                    <input type="text" id="username" name="username" value="${param.username}"
-                            class="input-xlarge validate[required]" placeholder="请输入用户名、邮箱或手机号">
-                </div>
-            </div>
-            <div class="control-group">
-                <label for="password">密码</label>
-                <div class="input-prepend">
-                    <span class="add-on icon-key"></span>
-                    <input type="password" id="password" name="password"
-                            class="input-xlarge validate[required]" placeholder="请输入密码">
-                </div>
-            </div>
-            <%-- jcaptchaEbabled 在JCaptchaValidateFilter设置 --%>
-            <c:if test="${jcaptchaEbabled}">
-                <div class="control-group">
-                    <label for="jcaptchaCode">验证码</label>
-                    <div class="input-prepend">
-                        <span class="add-on icon-circle-blank"></span>
-                        <input type="text" id="jcaptchaCode" name="jcaptchaCode"
-                                class="input-medium validate[required,ajax[ajaxJcaptchaCall]]" placeholder="请输入验证码">
-                    </div>
-                     <img class="jcaptcha-btn jcaptcha-img" style="margin-left: 10px;" src="${ctx}/jcaptcha.jpg" title="点击更换验证码">
-                     <a class="jcaptcha-btn btn btn-link">换一张</a>
-                </div>
-            </c:if>
-
-            <div class="control-group">
-                <label class="checkbox remember"><input type="checkbox" name="rememberMe" value="true">下次自动登录</label>
-                <input id="submitForm" type="submit" class="btn btn-login pull-left" value="登录">
-            </div>
-
-        </form>
+      <k:showMessage></k:showMessage>
+      <!-- Input Fields -->
+      <div class="form-group">
+        <!--<label for="username">Username:</label>-->
+        <div class="input-icon">
+          <i class="icon-user"></i>
+          <input type="text" id="username" name="username" class="form-control" placeholder="用户名" autofocus="autofocus" data-rule-required="true" data-msg-required="请输入用户名"/>
         </div>
-    </div>
-</div>
+      </div>
+      <div class="form-group">
+        <!--<label for="password">Password:</label>-->
+        <div class="input-icon">
+          <i class="icon-lock"></i>
+          <input type="password" id="password" name="password" class="form-control" placeholder="密码" data-rule-required="true" data-msg-required="请输入密码"/>
+        </div>
+      </div>
+      <%-- jcaptchaEbabled 在JCaptchaValidateFilter设置 --%>
+      <c:if test="${jcaptchaEbabled}">
+      <div class="form-group">
+        <div class="input-icon">
+          <i class="icon-qrcode"></i>
+          <input type="text" id="jcaptchaCode" name="jcaptchaCode" style="display:inline;" class="form-control input-width-medium " placeholder="验证码" data-rule-required="true" data-msg-required="请输入验证码">
+          <img class="jcaptcha-btn jcaptcha-img pull-right" src="${ctx}/jcaptcha.jpg" title="点击更换验证码">
+        </div>
+      </div>
+      </c:if>
+      <!-- /Input Fields -->
 
-<footer class="footer">
-    <div class="container">
-        <p><a href="http://sishuok.com" target="_blank">私塾在线学习网</a></p>
-        <p>Code licensed <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
-        <ul class="footer-links">
-            <li><a href="http://jinnianshilongnian.iteye.com">博客</a></li>
-            <li class="muted">·</li>
-            <li><a href="https://github.com/zhangkaitao/es/issues?state=open" target="_blank">问题反馈</a></li>
-            <li class="muted">·</li>
-            <li><a href="https://github.com/zhangkaitao/es" target="_blank">项目主页</a></li>
-        </ul>
-    </div>
-</footer>
+      <!-- Form Actions -->
+      <div class="form-actions">
+        <label class="checkbox pull-left"><input type="checkbox" class="uniform" name="rememberMe">自动登录</label>
+        <button type="submit" class="submit btn btn-primary pull-right">
+          登录 <i class="icon-key"></i>
+        </button>
+      </div>
+    </form>
+    <!-- /Login Formular -->
+  </div>
+  <!-- /.content -->
+</div>
+<!-- /Login Box -->
 <k:contentFooter/>
+<script>
+  $(document).ready(function () {
+    "use strict";
+
+    Login.init(); // Init login JavaScript
+  });
+</script>
 <script type="text/javascript">
-    $(function() {
-        $("#username").focus();
-        $(".jcaptcha-btn").click(function() {
-            var img = $(".jcaptcha-img");
-            var imageSrc = img.attr("src");
-            if(imageSrc.indexOf("?") > 0) {
-                imageSrc = imageSrc.substr(0, imageSrc.indexOf("?"));
-            }
-            imageSrc = imageSrc + "?" + new Date().getTime();
-            img.attr("src", imageSrc);
-        });
-        $.validationEngineLanguage.allRules.ajaxJcaptchaCall={
-            "url": "${ctx}/jcaptcha-validate",
-            "alertTextLoad": "* 正在验证，请稍等。。。"
-        };
-        $("#loginForm").validationEngine({scroll:false});
+  $(function () {
+    $("#username").focus();
+    $(".jcaptcha-btn").click(function () {
+      var img = $(".jcaptcha-img");
+      var imageSrc = img.attr("src");
+      if (imageSrc.indexOf("?") > 0) {
+        imageSrc = imageSrc.substr(0, imageSrc.indexOf("?"));
+      }
+      imageSrc = imageSrc + "?" + new Date().getTime();
+      img.attr("src", imageSrc);
     });
+    <%--$.validationEngineLanguage.allRules.ajaxJcaptchaCall = {--%>
+      <%--"url": "${ctx}/jcaptcha-validate",--%>
+      <%--"alertTextLoad": "* 正在验证，请稍等。。。"--%>
+    <%--};--%>
+//    $("#loginForm").validationEngine({scroll: false});
+  });
 </script>

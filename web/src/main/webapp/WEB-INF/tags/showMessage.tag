@@ -9,14 +9,15 @@
     <c:set var="error" value="${errorMessage}"/>
 </c:if>
 <c:if test="${not empty message}">
-    <div class="alert alert-success">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <span class="icon-ok-sign icon-large"></span>&nbsp;${message}
-    </div>
+  <div class="alert fade in alert-danger">
+    <i class="icon-remove close" data-dismiss="alert"></i>
+      ${message}
+  </div>
 </c:if>
 <c:if test="${not empty error}">
-    <div class="alert alert-error">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <span class="icon-remove-sign icon-large"></span>&nbsp;${error}
-    </div>
+  <div class="alert fade in alert-danger">
+    <i class="icon-remove close" data-dismiss="alert"></i>
+  ${error}
+  </div>
+
 </c:if>
