@@ -9,7 +9,7 @@
     <c:set var="error" value="${errorMessage}"/>
 </c:if>
 <c:if test="${not empty message}">
-  <div class="alert fade in alert-danger">
+  <div class="alert fade in alert-success">
     <i class="icon-remove close" data-dismiss="alert"></i>
       ${message}
   </div>

@@ -1,0 +1,2 @@
+<!-- App -->
+<script type="text/javascript" src="${ctx}/static/js/login.js"></script>

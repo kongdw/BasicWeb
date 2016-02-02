@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/WEB-INF/jsp/common/taglibs.jspf" %>
 <k:contentHeader title="用户登录" index="true"/>
+<%@include file="/WEB-INF/jsp/common/import-login-css.jspf"%>
 <!-- Logo -->
 <div class="logo">
   <img src="${ctx}/static/images/logo.png" alt="logo"/>
@@ -16,20 +17,20 @@
       <!-- Title -->
       <h3 class="form-title">用户登录</h3>
       <!-- Error Message -->
-      <k:showMessage></k:showMessage>
+      <k:showMessage/>
       <!-- Input Fields -->
       <div class="form-group">
         <!--<label for="username">Username:</label>-->
         <div class="input-icon">
           <i class="icon-user"></i>
-          <input type="text" id="username" name="username" value="${param.username}" class="form-control" placeholder="用户名" autofocus="autofocus" data-rule-required="true" data-msg-required="请输入用户名"/>
+          <input type="text" id="username" name="username" value="${param.username}" class="form-control" placeholder="用户名" autofocus="autofocus"/>
         </div>
       </div>
       <div class="form-group">
         <!--<label for="password">Password:</label>-->
         <div class="input-icon">
           <i class="icon-lock"></i>
-          <input type="password" id="password" name="password" class="form-control" placeholder="密码" data-rule-required="true" data-msg-required="请输入密码"/>
+          <input type="password" id="password" name="password" class="form-control" placeholder="密码"/>
         </div>
       </div>
       <%-- jcaptchaEbabled 在JCaptchaValidateFilter设置 --%>
@@ -38,7 +39,7 @@
         <div class="input-icon">
           <i class="icon-qrcode"></i>
           <img class="jcaptcha-btn jcaptcha-img pull-right" src="${ctx}/jcaptcha.jpg" title="点击更换验证码">
-          <input type="text" id="jcaptchaCode" name="jcaptchaCode" style="display:inline;" class="form-control input-width-medium " placeholder="验证码" data-rule-required="true" data-msg-required="请输入验证码"/>
+          <input type="text" id="jcaptchaCode" name="jcaptchaCode" style="display:inline;" class="form-control input-width-medium " placeholder="验证码"/>
         </div>
       </div>
       </c:if>
@@ -58,29 +59,9 @@
 </div>
 <!-- /Login Box -->
 <k:contentFooter/>
+<%@include file="/WEB-INF/jsp/common/import-login-js.jspf"%>
 <script>
   $(document).ready(function () {
-    "use strict";
-
     Login.init(); // Init login JavaScript
-  });
-</script>
-<script type="text/javascript">
-  $(function () {
-    $("#username").focus();
-    $(".jcaptcha-btn").click(function () {
-      var img = $(".jcaptcha-img");
-      var imageSrc = img.attr("src");
-      if (imageSrc.indexOf("?") > 0) {
-        imageSrc = imageSrc.substr(0, imageSrc.indexOf("?"));
-      }
-      imageSrc = imageSrc + "?" + new Date().getTime();
-      img.attr("src", imageSrc);
-    });
-    <%--$.validationEngineLanguage.allRules.ajaxJcaptchaCall = {--%>
-      <%--"url": "${ctx}/jcaptcha-validate",--%>
-      <%--"alertTextLoad": "* 正在验证，请稍等。。。"--%>
-    <%--};--%>
-    $("#loginForm").validationEngine({scroll: false});
   });
 </script>

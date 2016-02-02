@@ -1,15 +1,29 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<div id="menu">
-    <c:forEach items="${menus}" var="m">
-        <div>
-            <h3><a href="#">${m.name}</a></h3>
-            <div class="submenu">
-                <c:forEach items="${m.children}" var="c">
-                    <ul>
+<ul id="nav">
+<c:forEach items="${menus}" var="m">
+    <c:choose>
+        <c:when test="${!m.hasChildren}">
+            <li>
+                <a href="${m.url}">
+                    <i class="${m.icon}"></i>
+                        ${m.name}
+                </a>
+            </li>
+        </c:when>
+        <c:otherwise>
+            <li>
+                <a href="javascript:void(0);">
+                    <i class="${m.icon}"></i>
+                        ${m.name}
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <c:forEach items="${m.children}" var="c">
                         <k:submenu menu="${c}"/>
-                    </ul>
-                </c:forEach>
-            </div>
-        </div>
-    </c:forEach>
-</div>
+                    </c:forEach>
+                </ul>
+            </li>
+        </c:otherwise>
+    </c:choose>
+</c:forEach>
+</ul>

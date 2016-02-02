@@ -7,9 +7,9 @@
 <link href="${ctx}/static/css/responsive.css" rel="stylesheet" type="text/css" />
 <link href="${ctx}/static/css/icons.css" rel="stylesheet" type="text/css" />
 <link href="${ctx}/static/css/plugins/uniform.css" rel="stylesheet" type="text/css">
-<!-- Login -->
-<link href="${ctx}/static/css/login.css" rel="stylesheet" type="text/css" />
-
+<!--[if lt IE 9]>
+<link rel="stylesheet" type="text/css" href="${ctx}/static/comp/jquery-ui/jquery.ui.1.10.2.ie.css"/>
+<![endif]-->
 <link rel="stylesheet" href="${ctx}/static/css/fontawesome/font-awesome.min.css">
 <!--[if IE 7]>
 <link rel="stylesheet" href="${ctx}/static/css/fontawesome/font-awesome-ie7.min.css">
