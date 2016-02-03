@@ -1,6 +1,16 @@
 var Login = function () {
 
+    /* * * * * * * * * * * *
+     * Uniform
+     * * * * * * * * * * * */
+    var initUniform = function() {
+        if ($.fn.uniform) {
+            $(':radio.uniform, :checkbox.uniform').uniform();
+        }
+    };
+
     var handleLogin = function () {
+
         $("#username").focus();
 
         $(".jcaptcha-btn").click(function () {
@@ -97,6 +107,7 @@ var Login = function () {
     return {
         //main function to initiate the module
         init: function () {
+            initUniform();
             handleLogin();
         }
 

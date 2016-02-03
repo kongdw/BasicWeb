@@ -1,3 +1,4 @@
-<script src="${ctx}/static/comp/fullcalendar/fullcalendar.js"></script>
+<script type="text/javascript" src="${ctx}/static/comp/fullcalendar/fullcalendar.js"></script>
+<script type="text/javascript" src="${ctx}/static/js/demo/pages_calendar.js"></script>
 
 

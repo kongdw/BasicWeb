@@ -5,7 +5,7 @@
 <!-- Logo -->
 <div class="logo">
   <img src="${ctx}/static/images/logo.png" alt="logo"/>
-  <strong>###</strong>管理系统
+  <strong>K0n9后台管理系统</strong>
 </div>
 <!-- /Logo -->
 <!-- Login Box -->
@@ -49,7 +49,7 @@
       <div class="form-actions">
         <label class="checkbox pull-left"><input type="checkbox" class="uniform" name="rememberMe">自动登录</label>
         <button type="submit" class="submit btn btn-primary pull-right">
-          登录 <i class="icon-key"></i>
+          登录 <i class="icon-angle-right"></i>
         </button>
       </div>
     </form>

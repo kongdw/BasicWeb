@@ -3,9 +3,6 @@
  *
  * Demo JavaScript used on dashboard and calendar-page.
  */
-
-"use strict";
-
 $(document).ready(function(){
 
 	//===== Calendar =====//
@@ -16,67 +13,98 @@ $(document).ready(function(){
 
 	var h = {};
 
-	if ($('#calendar').width() <= 400) {
-		h = {
-			left: 'title',
-			center: '',
-			right: 'prev,next'
-		};
-	} else {
-		h = {
-			left: 'prev,next',
-			center: 'title',
-			right: 'month,agendaWeek,agendaDay'
-		};
-	}
+    var calendar = $('#calendar').fullCalendar({
+        header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,agendaWeek,agendaDay'
+        },
+        events: ctx + "/admin/personal/calendar/load",
+        eventDrop: function(event, delta) {
+            moveCalendar(event);
+        },
+        eventClick: function(event, delta) {
+            viewCalendar(event);
+        },
+        loading: function(bool) {
+            if (bool) $('#loading').show();
+            else $('#loading').hide();
+        },
+        editable: true,
+        selectable: true,
+        selectHelper: true,
+        select: function(start, end, allDay) {
+            openNewCalendarForm(start, end);
+            calendar.fullCalendar('unselect');
+        }
+    });
+    $('span.fc-button-prev').before('<span class="fc-button fc-button-add fc-state-default fc-corner-left fc-corner-right">新增</span>');
 
-	$('#calendar').fullCalendar({
-		disableDragging: false,
-		header: h,
-		editable: true,
-		events: [{
-				title: 'All Day Event',
-				start: new Date(y, m, 1),
-				backgroundColor: App.getLayoutColorCode('yellow')
-			}, {
-				title: 'Long Event',
-				start: new Date(y, m, d - 5),
-				end: new Date(y, m, d - 2),
-				backgroundColor: App.getLayoutColorCode('green')
-			}, {
-				title: 'Repeating Event',
-				start: new Date(y, m, d - 3, 16, 0),
-				allDay: false,
-				backgroundColor: App.getLayoutColorCode('red')
-			}, {
-				title: 'Repeating Event',
-				start: new Date(y, m, d + 4, 16, 0),
-				allDay: false,
-				backgroundColor: App.getLayoutColorCode('green')
-			}, {
-				title: 'Meeting',
-				start: new Date(y, m, d, 10, 30),
-				allDay: false,
-			}, {
-				title: 'Lunch',
-				start: new Date(y, m, d, 12, 0),
-				end: new Date(y, m, d, 14, 0),
-				backgroundColor: App.getLayoutColorCode('grey'),
-				allDay: false,
-			}, {
-				title: 'Birthday Party',
-				start: new Date(y, m, d + 1, 19, 0),
-				end: new Date(y, m, d + 1, 22, 30),
-				backgroundColor: App.getLayoutColorCode('purple'),
-				allDay: false,
-			}, {
-				title: 'Click for Google',
-				start: new Date(y, m, 28),
-				end: new Date(y, m, 29),
-				backgroundColor: App.getLayoutColorCode('yellow'),
-				url: 'http://google.com/',
-			}
-		]
-	});
+    $(".fc-button-add").click(function() {
+        openNewCalendarForm();
+    });
+    function openNewCalendarForm(start, end) {
+        var url = ctx + "/admin/personal/calendar/new";
+        if(start) {
+            start = $.fullCalendar.formatDate(start, "yyyy-MM-dd HH:mm:ss");
+            end = $.fullCalendar.formatDate(end, "yyyy-MM-dd HH:mm:ss");
+            url = url + "?start=" + start + "&end=" + end;
+        }
+        $.app.modalDialog("新增提醒事项", url, {
+            width:370,
+            height:430,
+            ok : function(modal) {
 
+                var form = modal.find("#editForm");
+                if(!form.validationEngine('validate')) {
+                    return false;
+                }
+                var url = ctx + "/admin/personal/calendar/new";
+                $.post(url, form.serialize(), function() {
+                    calendar.fullCalendar("refetchEvents");
+                });
+
+                return true;
+            }
+        });
+    }
+
+    function moveCalendar(event) {
+        var url = ctx + "/admin/personal/calendar/move";
+        var id = event.id;
+        var start = $.fullCalendar.formatDate(event.start, "yyyy-MM-dd HH:mm:ss");
+        var end = $.fullCalendar.formatDate(event.end, "yyyy-MM-dd HH:mm:ss");
+        url = url + "?id=" + id;
+        url = url + "&start=" + start + "&end=" + end;
+
+        $.post(url, function() {
+            calendar.fullCalendar("refetchEvents");
+        });
+    }
+
+    function viewCalendar(event) {
+        var url = ctx + "/admin/personal/calendar/view/" + event.id;
+        $.app.modalDialog("查看提醒事项", url, {
+            width:370,
+            height:250,
+            noTitle : false,
+            okBtn : false,
+            closeBtn : false
+        });
+    }
+    $("body").on("click", ".btn-delete-calendar", function() {
+        var $this = $(this);
+        $.app.confirm({
+            title : '确认删除提醒事项吗？',
+            message : '确认删除提醒事项吗？',
+            ok : function() {
+                var url = ctx + "/admin/personal/calendar/delete?id=" + $this.data("id");
+                $.post(url, function() {
+                    calendar.fullCalendar("refetchEvents");
+                    $.app.closeModalDialog();
+                });
+            }
+        });
+
+    });
 });

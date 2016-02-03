@@ -2,9 +2,6 @@
 Core script to handle the entire layout and base functions
 **/
 var App = function() {
-
-	"use strict";
-
 	// IE mode
 	var isIE8 = false;
 	var isIE9 = false;
@@ -20,7 +17,16 @@ var App = function() {
 	};
 	var sidebarWidth = '250px';
 
-	//* BEGIN:CORE HANDLERS *//
+    /* * * * * * * * * * * *
+     * Uniform
+     * * * * * * * * * * * */
+    var initUniform = function() {
+        if ($.fn.uniform) {
+            $(':radio.uniform, :checkbox.uniform').uniform();
+        }
+    }
+
+    //* BEGIN:CORE HANDLERS *//
 	// this function handles responsive layout on screen size resize or mobile device rotate.
 	var handleResponsive = function() {
 		var isIE8 = ( navigator.userAgent.match(/msie [8]/i) );
@@ -624,6 +630,7 @@ var App = function() {
 		//main function to initiate template pages
 		init: function() {
 			//core handlers
+            initUniform();
 			handleResponsive(); // Checks for IE-version, click-handler for sidebar-toggle-button, Breakpoints
 			handleLayout(); // Calls calculateHeight()
 			handleResizeEvents(); // Calls _resizeEvents() every 30ms on resizing
@@ -650,7 +657,7 @@ var App = function() {
 		blockUI: function (el, centerY) {
 			var el = $(el);
 			el.block({
-				message: '<img src="./assets/img/ajax-loading.gif" alt="">',
+				message: '<img src="../../static/images/ajax-loading.gif" alt="">',
 				centerY: centerY != undefined ? centerY : true,
 				css: {
 					top: '10%',
