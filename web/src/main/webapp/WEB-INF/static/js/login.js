@@ -1,9 +1,6 @@
 var Login = function () {
 
-    /* * * * * * * * * * * *
-     * Uniform
-     * * * * * * * * * * * */
-    var initUniform = function() {
+    var initUniform = function () {
         if ($.fn.uniform) {
             $(':radio.uniform, :checkbox.uniform').uniform();
         }
@@ -48,12 +45,7 @@ var Login = function () {
                         },
                         dataFilter: function (data) {　　　　//判断控制器返回的内容
                             data = eval(data);
-                            if (data[1] == 1) {
-                                return true;
-                            }
-                            else {
-                                return false;
-                            }
+                            return data[1] == 1;
                         }
                     }
                 }
@@ -66,9 +58,9 @@ var Login = function () {
                 password: {
                     required: "请输入密码"
                 },
-                jcaptchaCode:{
+                jcaptchaCode: {
                     required: "请输入验证码",
-                    remote:"验证码输入有误"
+                    remote: "验证码输入有误"
                 }
             },
 
@@ -102,10 +94,9 @@ var Login = function () {
                 return false;
             }
         });
-    }
+    };
 
     return {
-        //main function to initiate the module
         init: function () {
             initUniform();
             handleLogin();
