@@ -23,7 +23,7 @@ import java.lang.annotation.*;
 /**
  * 覆盖默认的根据条件查询数据
  *
- * @author Zhang Kaitao
+ * @author David Kong
  */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)

@@ -21,7 +21,7 @@ import java.lang.annotation.*;
 /**
  * <p>默认的分页数据，先从参数找，参数找不到从方法上找</p>
  *
- * @author Zhang Kaitao
+ * @author David Kong
  */
 @Target({ElementType.METHOD, ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)

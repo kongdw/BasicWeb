@@ -200,7 +200,7 @@ public class Resource extends BaseEntity<Long> implements Treeable<Long> {
      */
     @Override
     public String getRootDefaultIcon() {
-        return "ztree_setting";
+        return "";
     }
 
     /**
@@ -210,7 +210,7 @@ public class Resource extends BaseEntity<Long> implements Treeable<Long> {
      */
     @Override
     public String getBranchDefaultIcon() {
-        return "ztree_folder";
+        return "";
     }
 
     /**
@@ -220,7 +220,7 @@ public class Resource extends BaseEntity<Long> implements Treeable<Long> {
      */
     @Override
     public String getLeafDefaultIcon() {
-        return "ztree_file";
+        return "";
     }
 
 }

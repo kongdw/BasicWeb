@@ -21,7 +21,7 @@ import java.lang.annotation.*;
 /**
  * 开启查询缓存
  *
- * @author Zhang Kaitao
+ * @author David Kong
  */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
