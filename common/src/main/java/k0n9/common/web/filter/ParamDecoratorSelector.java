@@ -34,7 +34,7 @@ public class ParamDecoratorSelector implements DecoratorSelector<WebAppContext> 
         }
         if (StringUtils.isNotBlank(decorator)) {
             //按照参数值返回对应路径下面的jsp装饰模板页码
-            return new String[] { "/WEB-INF/jsp/layouts/" + decorator + ".jsp" };
+            return new String[] { "/WEB-INF/jsp/layout/" + decorator + ".jsp" };
         }
 
         // Otherwise, fallback to the standard configuration

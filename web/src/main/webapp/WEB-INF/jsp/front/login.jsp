@@ -59,7 +59,7 @@
       <h4>忘了密码?</h4>
 
       <p>
-        不用担心,点击 <a href="javascript:;" id="forget-password">
+        请点击 <a href="javascript:;" id="forget-password">
         这里 </a>
         重置密码.
       </p>
@@ -99,7 +99,6 @@
   <!-- BEGIN REGISTRATION FORM -->
   <form class="register-form" action="index.html" method="post">
     <h3>注册</h3>
-
     <p>
       请输入您的个人信息:
     </p>
@@ -171,16 +170,6 @@
         <input class="form-control placeholder-no-fix" type="text" placeholder="Email" name="email"/>
       </div>
     </div>
-    <%--<div class="form-group">--%>
-    <%--<label>--%>
-    <%--<input type="checkbox" name="tnc"/> I agree to the <a href="javascript:;">--%>
-    <%--Terms of Service </a>--%>
-    <%--and <a href="javascript:;">--%>
-    <%--Privacy Policy </a>--%>
-    <%--</label>--%>
-    <%--<div id="register_tnc_error">--%>
-    <%--</div>--%>
-    <%--</div>--%>
     <div class="form-actions">
       <button id="register-back-btn" type="button" class="btn">
         <i class="m-icon-swapleft"></i> 返回

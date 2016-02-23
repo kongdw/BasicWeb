@@ -16,7 +16,7 @@
   <meta http-equiv="Content-type" content="text/html; charset=utf-8">
   <meta content="" name="description"/>
   <meta content="" name="author"/>
-  <%@include file="/WEB-INF/jsp/layout/admin-include-header.jsp"%>
+  <%@include file="/WEB-INF/jsp/common/import-css.jspf"%>
   <sitemesh:write property='head' />
 </head>
 <body class="login">
@@ -40,7 +40,7 @@
 </div>
 <!-- END COPYRIGHT -->
 <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
-<%@include file="/WEB-INF/jsp/layout/admin-include-footer.jsp"%>
+<%@include file="/WEB-INF/jsp/common/import-js.jspf"%>
 <script>
   jQuery(document).ready(function() {
     Login.init();

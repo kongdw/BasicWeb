@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemesh>
     <mapping path="/login*" decorator="/WEB-INF/jsp/layout/admin-login.jsp" />
-	<mapping path="/**/edit*" decorator="/WEB-INF/jsp/layout/body.jsp" />
     <mapping path="/admin/*" decorator="/WEB-INF/jsp/layout/admin-index.jsp" />
     <mapping path="*" exclue="true" />
 </sitemesh>
