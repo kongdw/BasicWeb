@@ -41,12 +41,9 @@ public class IndexController {
 
     @RequestMapping(value = {"/{index:index;?.*}"}) //spring3.2.2 bug see  http://jinnianshilongnian.iteye.com/blog/1831408
     public String index(@CurrentUser User user, Model model) {
-
-        List<Menu> menus = resourceService.findMenus(user);
-        model.addAttribute("menus", menus);
-
+        /*List<Menu> menus = resourceService.findMenus(user);
+        model.addAttribute("menus", menus);*/
         pushApi.offline(user.getId());
-
         return "admin/index/index";
     }
 
@@ -68,9 +65,5 @@ public class IndexController {
 
         return "admin/index/welcome";
     }
-
-
-
-
 
 }

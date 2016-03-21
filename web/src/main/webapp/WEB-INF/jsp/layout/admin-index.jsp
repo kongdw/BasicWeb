@@ -29,78 +29,23 @@
         <img src="${ctx}/static/img/logo-default.png" alt="logo" class="logo-default"/>
       </a>
 
-      <div class="menu-toggler sidebar-toggler">
-      </div>
+      <div class="menu-toggler sidebar-toggler"></div>
     </div>
     <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
     </a>
 
-    <div class="page-actions">
-      <div class="btn-group hide">
-        <button type="button" class="btn btn-circle red-pink dropdown-toggle" data-toggle="dropdown">
-          <i class="icon-bar-chart"></i>&nbsp;<span class="hidden-sm hidden-xs">New&nbsp;</span>&nbsp;<i class="fa fa-angle-down"></i>
-        </button>
-        <ul class="dropdown-menu" role="menu">
-          <li>
-            <a href="javascript:;">
-              <i class="icon-user"></i> New User </a>
-          </li>
-          <li>
-            <a href="javascript:;">
-              <i class="icon-present"></i> New Event <span class="badge badge-success">4</span>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:;">
-              <i class="icon-basket"></i> New order </a>
-          </li>
-          <li class="divider">
-          </li>
-          <li>
-            <a href="javascript:;">
-              <i class="icon-flag"></i> Pending Orders <span class="badge badge-danger">4</span>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:;">
-              <i class="icon-users"></i> Pending Users <span class="badge badge-warning">12</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div class="btn-group">
-        <button type="button" class="btn btn-circle green-haze dropdown-toggle" data-toggle="dropdown">
-          <i class="fa fa-plus"></i>&nbsp;<span class="hidden-sm hidden-xs">Create&nbsp;</span>&nbsp;<i class="fa fa-angle-down"></i>
-        </button>
-        <ul class="dropdown-menu" role="menu">
-          <li>
-            <a href="javascript:;">
-              <i class="icon-docs"></i> New Post </a>
-          </li>
-          <li>
-            <a href="javascript:;">
-              <i class="icon-tag"></i> New Comment </a>
-          </li>
-          <li>
-            <a href="javascript:;">
-              <i class="icon-share"></i> Share </a>
-          </li>
-          <li class="divider">
-          </li>
-          <li>
-            <a href="javascript:;">
-              <i class="icon-flag"></i> Comments <span class="badge badge-success">4</span>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:;">
-              <i class="icon-users"></i> Feedbacks <span class="badge badge-danger">2</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
     <div class="page-top">
+      <div class="page-actions">
+        <div class="index-panel tabbable tabbable-tabdrop">
+          <ul class="nav nav-pills ul-wrapper">
+            <li class="active">
+              <a href="#" data-toggle="tab" aria-expanded="false" >
+                我的主页
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
       <div class="top-menu">
         <%@include file="/WEB-INF/jsp/admin/index/userinfo.jsp" %>
       </div>
@@ -120,18 +65,15 @@
     <div class="page-content">
       <%--<%@ include file="/WEB-INF/jsp/common/theme-panel.jspf"%>--%>
       <div class="page-bar">
-        <ul class="page-breadcrumb" id="layout-nav">
-          <li>
-            <i class="fa fa-home"></i>
-            <a href="#">主页</a>
-          </li>
+        <ul class="page-breadcrumb">
         </ul>
       </div>
+      <div class="clearfix"></div>
       <div class="row">
         <div class="col-md-12">
-          <%--<sitemesh:write property='body'/>--%>
-            <div class="tab-content">
-            </div>
+          <div class="tabs-contents tab-content">
+            <%--<sitemesh:write property='body'/>--%>
+          </div>
         </div>
       </div>
     </div>
@@ -148,6 +90,8 @@
 <%@include file="/WEB-INF/jsp/common/import-js.jspf" %>
 <script type="text/javascript" src="${ctx}/static/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"></script>
 <script type="text/javascript" src="${ctx}/static/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script type="text/javascript" src="${ctx}/static/plugins/bootstrap-tabdrop/js/bootstrap-tabdrop.js"></script>
+<script type="text/javascript" src="${ctx}/static/js/components-pickers.js"></script>
 <script type="text/javascript" src="${ctx}/static/js/metronic.js"></script>
 <script type="text/javascript" src="${ctx}/static/js/admin/global.js"></script>
 <script type="text/javascript" src="${ctx}/static/js/utils.js"></script>
@@ -158,6 +102,7 @@
     Util.init();
     AdminGlobal.init();
     Layout.init();
+    ComponentsPickers.init();
   });
 </script>
 </body>

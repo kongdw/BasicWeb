@@ -18,6 +18,15 @@ var Util = function () {
                         if (callback) {
                             callback.call(el, data)
                         }
+                        var e = null;
+                        if (el.is("tbody")) {
+                            e = el;
+                        } else {
+                            e = $("<div class='ajax-page-inner'/>").appendTo(el)
+                        }
+                        e.hide();
+                        e.html(data);
+                        e.show();
                     },
                     error: function (g, e, f) {
                         //if (g.status == 400) {

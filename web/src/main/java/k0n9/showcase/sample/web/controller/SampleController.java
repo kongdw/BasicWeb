@@ -7,7 +7,6 @@ import k0n9.common.web.validate.ValidateResponse;
 import k0n9.showcase.sample.entity.Sample;
 import k0n9.showcase.sample.entity.Sex;
 import k0n9.showcase.sample.service.SampleService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.Assert;

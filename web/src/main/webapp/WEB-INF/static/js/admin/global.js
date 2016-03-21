@@ -1,3 +1,43 @@
+$.menus = {
+    initMenu: function () {
+        var menuDiv = $(".page-sidebar-menu");
+        /**
+         *
+         * @param list 为json数据
+         * @param parent  为要组合成html的容器
+         * @param rootPath 根节点路径
+         */
+        var addMenus = function (list, parent, rootPath) {
+            $.each(list, function (i, m) {
+                var liTemplate = '<li data-path="{rootPath}"><a href="javascript:void(0);"><i class="{icon}"></i><span class="title">{name}</span></a></li>';
+                var currentPath = ((rootPath ? rootPath + ":" : "" ) + m.name);
+                liTemplate = liTemplate.replace("{rootPath}", currentPath).replace("{icon}", (m.icon ? "" : "icon-link")).replace("{name}", m.name);
+                var li = $(liTemplate);
+                if (m.hasChildren) {
+                    $(li).find('a').append('<span class="arrow"></span>');
+                    $(li).append('<ul class="sub-menu"></ul>').appendTo(parent);
+                    addMenus(m.children, $(li).find("> ul.sub-menu").eq(0), currentPath);
+                } else {
+                    $(li).find('a').attr("rel", "address:" + m.url + "|" + currentPath);
+                    $(li).appendTo(parent);
+                }
+            });
+        };
+        if (menuDiv.size() > 0) {
+            menuDiv.ajaxJsonUrl(ctx + "/admin/menus", function (data) {
+                Metronic.blockUI({
+                    target: menuDiv,
+                    animate: true,
+                    overlayColor: 'none'
+                });
+                addMenus(data, menuDiv);
+                window.setTimeout(function () {
+                    Metronic.unblockUI(menuDiv);
+                }, 1000);
+            });
+        }
+    }
+};
 var AdminGlobal = function () {
     return {
         init: function () {
@@ -5,57 +45,18 @@ var AdminGlobal = function () {
              * 初始化菜单
              * @type {*|jQuery|HTMLElement}
              */
-            var menuDiv = $(".page-sidebar-menu");
-            if (menuDiv.size() > 0) {
-                /**
-                 *
-                 * @param list 为json数据
-                 * @param parent  为要组合成html的容器
-                 * @param rootPath 根节点
-                 */
-                var addMenus = function (list, parent, rootPath) {
-                    for (var m in list) {
-                        var currentPath = rootPath;
-                        //如果有子节点，则遍历该子节点
-                        if (list[m].hasChildren) {
-                            currentPath = (rootPath ? rootPath + ":" : "" ) + list[m].name;
-                            //创建一个子节点li
-                            var li = $('<li data-path="' + currentPath + '"></li>');
-                            var temp = '<a href="javascript:void(0);"><i class="' + (list[m].icon ? "" : "icon-link") + '"></i><span class="title">' + list[m].name + '</span><span class="arrow"></span></a>';
-                            //将li的文本设置好，并马上添加一个空白的ul子节点，并且将这个li添加到父亲节点中
-                            $(li).append(temp).append('<ul class="sub-menu"></ul>').appendTo(parent);
-                            //将空白的ul作为下一个递归遍历的父亲节点传入
-                            addMenus(list[m].children, $(li).find("> ul.sub-menu").eq(0), currentPath);
-                        }
-                        //如果该节点没有子节点，则直接将该节点li以及文本创建好直接添加到父亲节点中
-                        else {
-                            var temp = '<li data-path="' + currentPath + ":" + list[m].name + '"><a href="javascript:void(0);" rel="address:' + list[m].url + '|' + currentPath + ":" +list[m].name + '"> <i class="' + (list[m].icon ? "" : "icon-link") + '"></i>' + list[m].name + '</a></li>';
-                            $(temp).appendTo(parent);
-                        }
-                    }
-                };
-                menuDiv.ajaxJsonUrl(ctx + "/admin/menus", function (data) {
-                    Metronic.blockUI({
-                        target: menuDiv,
-                        animate: true,
-                        overlayColor: 'none'
-                    });
-                    addMenus(data, menuDiv, "");
-                    window.setTimeout(function () {
-                        Metronic.unblockUI(menuDiv);
-                    }, 1000);
-                });
-            }
+            var myHomeUrl = "/admin/welcome";
+            $.menus.initMenu();
             $.address.change(function (data) {
-                if (data.value == "/dashboard") {
-                    AdminGlobal.addOrActivePanel(DASHBOARD_URI + "|Dashboard")
+                if (data.value == "/") {
+                    AdminGlobal.addOrActivePanel(myHomeUrl + "|我的主页")
                 } else {
                     if (data.value == "/") {
                         var j = window.location.href.replace(/.*\/admin/g, "");
                         if (j == "" || j == "/" || j == "#") {
-                            AdminGlobal.addOrActivePanel(DASHBOARD_URI + "|Dashboard")
+                            AdminGlobal.addOrActivePanel(myHomeUrl + "|我的主页")
                         } else {
-                            AdminGlobal.addOrActivePanel("/admin/" + j + "|Dashboard")
+                            AdminGlobal.addOrActivePanel("/admin" + j + "|我的主页")
                         }
                     } else {
                         var menu = $('.page-sidebar li > a[rel^="address:' + data.value + '"]');
@@ -86,21 +87,22 @@ var AdminGlobal = function () {
                 }
             });
         },
-        addOrActivePanel: function (l, m) {
-            l = decodeURI(l);
-            var b = l;
-            var j = l.split("|");
+        addOrActivePanel: function (url, m) {
+            url = decodeURI(url);
+            var ajaxUrl = url;
+            var j = url.split("|");
             if (j.length > 1) {
-                b = j[0];
+                ajaxUrl = j[0];
                 if (m == undefined) {
                     m = j[1]
                 }
             }
-            b = ctx + b;
+            ajaxUrl = ctx + ajaxUrl;
             var h = m.split(":");
             var d = h[h.length - 1];
-            var m = '<li><a href="#/dashboard" class="btn-dashboard"><i class="fa fa-home"></i> 首页 </a></li> ';
-            var f = $("#layout-nav");
+            var m = '<li><a href="#/welcome" class="btn-dashboard"><i class="fa fa-home"></i> 我的主页 </a></li> ';
+            var f = $(".page-breadcrumb");
+            var tabContent = $(".tab-content");
             f.find("> li:not(.btn-group)").remove();
             $.each(h, function (o, n) {
                 n = n;
@@ -111,19 +113,18 @@ var AdminGlobal = function () {
                 }
             });
             f.append(m);
-            var e = f.next(".tab-content");
-            var k = e.find("> div[data-url='" + b + "']");
+            var k = tabContent.find("> div[data-url='" + ajaxUrl + "']");
             if (k.length == 0) {
-                k = $('<div data-url="' + b + '" class="panel-content"></div>').appendTo(e);
-                k.ajaxGetUrl(b)
+                k = $('<div data-url="' + ajaxUrl + '" class="tab-pane active"></div>').appendTo(tabContent);
+                k.ajaxGetUrl(ajaxUrl)
             } else {
                 k.show()
             }
-            e.find("> div").not(k).hide();
+            tabContent.find("> div").not(k).hide();
             var c = f.find(" > .btn-group > ul.dropdown-menu");
-            var g = c.find("> li > a[rel='address:" + l + "']");
+            var g = c.find("> li > a[rel='address:" + url + "']");
             if (g.length == 0) {
-                g = $('<a href="javascripts:;" rel="address:' + l + '">' + d + '<span class="badge badge-default">X</span></a>').appendTo(c).wrap("<li/>");
+                g = $('<a href="javascripts:;" rel="address:' + url + '">' + d + '<span class="badge badge-default">X</span></a>').appendTo(c).wrap("<li/>");
                 g.find(".badge").click(function (p) {
                     p.preventDefault();
                     p.stopPropagation();
@@ -170,7 +171,7 @@ var AdminGlobal = function () {
             g.parent("li").attr("count", i + 1);
             f.find("> li:not(.btn-group) > a.reload").click(function (n) {
                 n.preventDefault();
-                k.ajaxGetUrl(b)
+                k.ajaxGetUrl(ajaxUrl)
             })
         }
     }

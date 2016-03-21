@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/WEB-INF/jsp/common/taglibs.jspf"%>
-<k:contentHeader/>
 <style type="text/css">
     .ui-layout-north {
         display:	none;
@@ -31,8 +30,6 @@
     <iframe id="listFrame" name="listFrame" width="100%" height="100%"  frameborder="0" scrolling="auto"
              src="${ctx}/admin/sys/user/0/0"></iframe>
 </div>
-
-<k:contentFooter/>
 
 <script type="text/javascript">
 

@@ -7,7 +7,13 @@
 <link rel="stylesheet" type="text/css" href="${ctx}/static/plugins/simple-line-icons/simple-line-icons.min.css"/>
 <link rel="stylesheet" type="text/css" href="${ctx}/static/plugins/bootstrap/css/bootstrap.min.css"/>
 <link rel="stylesheet" type="text/css" href="${ctx}/static/plugins/uniform/css/uniform.default.css"/>
+<link rel="stylesheet" type="text/css" href="${ctx}/static/plugins/uniform/css/uniform.default.css"/>
+<link rel="stylesheet" type="text/css" href="${ctx}/static/css/plugins.css"/>
+<link rel="stylesheet" type="text/css" href="${ctx}/static/css/app.css"/>
 <link rel="stylesheet" type="text/css" href="${ctx}/static/plugins/select2/select2.css"/>
+<link rel="stylesheet" type="text/css" href="${ctx}/static/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+<link rel="stylesheet" type="text/css" href="${ctx}/static/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css">
+<link rel="stylesheet" type="text/css" href="${ctx}/static/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
 <link id="style_components" rel="stylesheet" type="text/css" href="${ctx}/static/css/components.css"/>
 <link rel="stylesheet" type="text/css" href="${ctx}/static/plugins/bootstrap-toastr/toastr.min.css"/>
-<link rel="shortcut icon" href="favicon.ico"/>
+<link rel="shortcut icon" href="${ctx}/static/favicon.ico"/>
