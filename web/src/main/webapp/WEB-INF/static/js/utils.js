@@ -15,6 +15,11 @@ var Util = function () {
                     dataType: "html",
                     headers: {decorator: "body"},
                     success: function (data) {
+                        //如果session失效则跳转到登录页面
+                        if(data.indexOf("login-form") != -1){
+                            window.location.href= ctx + "/login";
+                            return;
+                        }
                         if (callback) {
                             callback.call(el, data)
                         }
@@ -83,7 +88,7 @@ var Util = function () {
         assertNotBlank: function (param, message) {
             if (param == undefined || $.trim(param) == "") {
                 Util.assert(false, message);
-                return
+                return;
             }
         },
         assert: function (isAlert, message) {

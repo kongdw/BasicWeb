@@ -28,7 +28,6 @@
       <a href="index.html">
         <img src="${ctx}/static/img/logo-default.png" alt="logo" class="logo-default"/>
       </a>
-
       <div class="menu-toggler sidebar-toggler"></div>
     </div>
     <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
@@ -36,8 +35,8 @@
 
     <div class="page-top">
       <div class="page-actions">
-        <div class="index-panel tabbable tabbable-tabdrop">
-          <ul class="nav nav-pills ul-wrapper">
+        <div class="page-tabs-bar tabbable tabbable-tabdrop" style="width: 500px;">
+          <ul class="nav nav-pills">
             <li class="active">
               <a href="#" data-toggle="tab" aria-expanded="false" >
                 我的主页
@@ -71,7 +70,7 @@
       <div class="clearfix"></div>
       <div class="row">
         <div class="col-md-12">
-          <div class="tabs-contents tab-content">
+          <div class="page-tabs-content tab-content">
             <%--<sitemesh:write property='body'/>--%>
           </div>
         </div>
