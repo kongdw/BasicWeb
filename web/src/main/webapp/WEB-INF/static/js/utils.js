@@ -59,6 +59,7 @@ var Util = function () {
                     traditional: true,
                     type: "GET",
                     cache: false,
+                    async: false,
                     url: url,
                     dataType: "json",
                     data: requestParams,
