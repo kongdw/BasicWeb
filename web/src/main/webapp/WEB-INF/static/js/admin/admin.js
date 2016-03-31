@@ -9,13 +9,13 @@ $.menus = {
         var $menu = $("#nav");
         var addMenus = function (data, parent, rootPath) {
             $.each(data, function (i, m) {
-                var liTemplate = '<li><a href="javascript:void(0);" data-path="{rootPath}"><i class="{icon}"></i>{name}</a></li>';
+                var liTemplate = '<li><a href="javascript:;" data-path="{rootPath}"><i class="{icon}"></i>{name}</a></li>';
                 var currentPath = ((rootPath ? rootPath + ":" : "" ) + m.name);
                 liTemplate = liTemplate.replace("{rootPath}", currentPath).replace("{icon}", (m.icon ? "" : "icon-link")).replace("{name}", m.name);
                 var li = $(liTemplate);
                 /** @namespace m.hasChildren */
                 if (m.hasChildren) {
-                    $(li).find('a').append('<i class="arrow icon-angle-left"></i>');
+                    //$(li).find('a').append('<i class="arrow icon-angle-left"></i>');
                     $(li).append('<ul class="sub-menu"></ul>').appendTo(parent);
                     addMenus(m.children, $(li).find("> ul.sub-menu").eq(0), currentPath);
                 } else {

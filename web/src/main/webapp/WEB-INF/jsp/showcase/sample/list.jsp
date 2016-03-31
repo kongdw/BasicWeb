@@ -6,19 +6,19 @@
     <div class="tabbable-line">
       <ul class="nav nav-tabs">
         <li ${empty param['search.show_eq'] ? 'class="active"' : ''}>
-          <a href="javascript:" data-toggle="tab" data-url="${ctx}/showcase/sample">
+          <a href="javascript:" data-toggle="tab" data-url="#${ctx}/showcase/sample">
             <i class="fa fa-table"></i>
             所有示例列表
           </a>
         </li>
         <li ${param['search.show_eq'] eq 'true' ? 'class="active"' : ''}>
-          <a href="${ctx}/showcase/sample?search.show_eq=true" data-toggle="tab">
+          <a href="javascript:" rel="#${ctx}/showcase/sample?search.show_eq=true" data-toggle="tab">
             <i class="fa fa-table"></i>
             可显示的示例列表
           </a>
         </li>
         <li ${param['search.show_eq'] eq 'false' ? 'class="active"' : ''}>
-          <a href="${ctx}/showcase/sample?search.show_eq=false" data-toggle="tab">
+          <a href="javascript:" rel="#${ctx}/showcase/sample?search.show_eq=false" data-toggle="tab">
             <i class="fa fa-table"></i>
             隐藏的示例列表
           </a>

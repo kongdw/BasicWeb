@@ -5,7 +5,7 @@
 <!--[if lt IE 9]>
 <script src="${ctx}/static/js/libs/html5shiv.js"></script>
 <![endif]-->
-
+<script type="text/javascript" src="${ctx}/static/plugins/jquery-address/jquery.address-1.6.js"></script>
 
 <script type="text/javascript" src="${ctx}/static/plugins/validation/jquery.validate.min.js"></script>
 <script type="text/javascript" src="${ctx}/static/plugins/validation/localization/messages_zh.js"></script>
@@ -27,8 +27,6 @@
 <!--[if lt IE 9]>
 <script type="text/javascript" src="${ctx}/static/plugins/flot/excanvas.min.js"></script>
 <![endif]-->
-
-<script type="text/javascript" src="${ctx}/static/plugins/jquery-address/jquery.address-1.6.js"></script>
 
 <script type="text/javascript" src="${ctx}/static/plugins/bootstrap-toastr/toastr.min.js"></script>
 
