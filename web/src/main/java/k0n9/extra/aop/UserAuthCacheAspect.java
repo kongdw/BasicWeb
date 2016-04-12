@@ -186,7 +186,7 @@ public class UserAuthCacheAspect extends BaseCacheAspect {
 
     /**
      * 4、角色（Role）
-     * 当删除角色时，请缓存
+     * 当删除角色时，清缓存
      * 当修改角色show/role/resourcePermissions关系时，清缓存
      */
     @Pointcut(value = "target(k0n9.sys.permission.service.RoleService)")
