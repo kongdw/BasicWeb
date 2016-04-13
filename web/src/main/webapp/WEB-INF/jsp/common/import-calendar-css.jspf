@@ -1,1 +1,1 @@
-<link rel="stylesheet" href="${ctx}/static/css/plugins/fullcalendar.css">
+<link rel="stylesheet" href="${ctx}/static/css/fullcalendar.css">
