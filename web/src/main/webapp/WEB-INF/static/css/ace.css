@@ -10658,8 +10658,8 @@ textarea.input-transparent:focus,
 /* background for tab links */
 .nav-tabs.background-blue {
   padding-top: 6px;
-  background-color: #EFF3F8;
-  border: 1px solid #C5D0DC;
+  background-color: #F2F2F2;
+  /*border: 1px solid #C5D0DC;*/
 }
 .tabs-below .nav-tabs.background-blue {
   padding-top: 0;

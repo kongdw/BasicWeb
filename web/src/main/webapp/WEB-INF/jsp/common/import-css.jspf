@@ -15,6 +15,7 @@
 <!-- bootstrap & fontawesome -->
 <link rel="stylesheet" href="${ctx}/static/css/bootstrap.css" />
 <link rel="stylesheet" href="${ctx}/static/css/font-awesome.css" />
+<link rel="stylesheet" href="${ctx}/static/css/app.css" />
 
 <!-- page specific plugin styles -->
 <link rel="stylesheet" href="${ctx}/static/css/jquery-ui.css"/>
