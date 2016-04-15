@@ -4,7 +4,7 @@ $.app = {
 
     /**初始化主页 layout，菜单，tab*/
     initIndex: function () {
-        $.menus.initMenu();
+        //$.menus.initMenu();
         $.layouts.initLayout();
         $.tabs.initTab();
         $.app.initCommonBtn();
@@ -982,7 +982,7 @@ $.menus = {
             var a = $(this);
             var title = a.text();
             var href = a.attr("href");
-            a.attr("href", "#");
+            //a.attr("href", "#");
             if (href == "#" || href == '') {
                 return;
             }

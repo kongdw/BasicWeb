@@ -15,7 +15,7 @@
 <script src="${ctx}/static/js/ace/elements.treeview.js"></script>
 <script src="${ctx}/static/js/ace/elements.wizard.js"></script>
 <script src="${ctx}/static/js/ace/elements.aside.js"></script>
-<script src="${ctx}/static/js/ace/ace.js"></script>
+<script src="${ctx}/static/js/ace.js"></script>
 <script src="${ctx}/static/js/ace/ace.ajax-content.js"></script>
 <script src="${ctx}/static/js/ace/ace.touch-drag.js"></script>
 <script src="${ctx}/static/js/ace/ace.sidebar.js"></script>

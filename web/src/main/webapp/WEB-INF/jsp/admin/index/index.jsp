@@ -46,26 +46,46 @@
   </div>
   <div class="main-content">
     <div class="main-content-inner">
-      <%@include file="setting.jsp" %>
-      <div class="tabs-bar tabs-fix-top" style="padding:0;">
-        <%--<span class="fa fa-chevron-left" style="display: none;"></span>--%>
-        <div class="ul-wrapper">
-          <ul style="padding-left: 10px;background: #F2F2F2;padding-top: 4px;">
-            <li class="active">
-              <a href="#tabs-0">欢迎使用</a>
-              <span class='menu' role='presentation' style="display:inline-block;width: 14px;height: 14px"></span>
-              <br>
-              <span class='menu icon-refresh' role='presentation' title='刷新'></span>
-            </li>
-          </ul>
-        </div>
-        <span class="fa fa-chevron-right" style="display: none;"></span>
-        <div id="tabs-0" data-index="0" style="border: none;padding:0;" data-url="${ctx}/admin/welcome"></div>
+      <div class="breadcrumbs breadcrumbs-fixed" id="breadcrumbs">
+        <script type="text/javascript">
+          try {
+            ace.settings.check('breadcrumbs', 'fixed')
+          } catch (e) {
+          }
+        </script>
+        <ul class="breadcrumb">
+          <li>
+            <i class="ace-icon fa fa-home home-icon"></i>
+            <a href="#">Home</a>
+          </li>
+          <li><a href="#">
+            UI &amp; Elements
+          </a></li>
+          <li class="active">
+            Nestable Lists
+          </li>
+        </ul>
+        <!-- /.breadcrumb -->
       </div>
+      <%--<div class="tabs-bar tabs-fix-top" style="padding:0;">--%>
+      <%--&lt;%&ndash;<span class="fa fa-chevron-left" style="display: none;"></span>&ndash;%&gt;--%>
+      <%--<div class="ul-wrapper">--%>
+      <%--<ul style="padding-left: 10px;background: #F2F2F2;padding-top: 4px;">--%>
+      <%--<li class="active">--%>
+      <%--<a href="#tabs-0">欢迎使用</a>--%>
+      <%--<span class='menu' role='presentation' style="display:inline-block;width: 14px;height: 14px"></span>--%>
+      <%--<br>--%>
+      <%--<span class='menu icon-refresh' role='presentation' title='刷新'></span>--%>
+      <%--</li>--%>
+      <%--</ul>--%>
+      <%--</div>--%>
+      <%--<span class="fa fa-chevron-right" style="display: none;"></span>--%>
+
+      <%--<div id="tabs-0" data-index="0" style="border: none;padding:0;" data-url="${ctx}/admin/welcome"></div>--%>
+      <%--</div>--%>
       <div class="page-content">
-        <div class="index-panel" style="min-height: 560px;">
-          <iframe id="iframe-tabs-0" tabs="true" class="ui-layout-center" frameborder="0" scrolling="auto" src="${ctx}/admin/welcome"></iframe>
-        </div>
+        <%@include file="setting.jsp" %>
+        <div class="page-content-area" data-ajax-content="true"></div>
       </div>
     </div>
 
@@ -77,8 +97,25 @@
 </div>
 <k:contentFooter/>
 <script type="text/javascript">
-  $(function () {
-    $('#page-tabs').tabs();
-    $.app.initIndex();
-  });
+  var demo_ajax_options = {
+    'close_active': true,
+    close_mobile_menu: '#sidebar',
+    close_dropdowns: true,
+    'default_url': 'page/admin/index',//default hash
+    'content_url': function (hash) {
+      //***NOTE***
+      //this is for Ace demo only, you should change it to return a valid URL
+      //please refer to documentation for more info
+
+      if (!hash.match(/^page\//)) return false;
+      var path = document.location.pathname;
+      if(path.match(/(\/admin\/)(index\.html)?/))
+      			return path.replace(/(\/admin\/)(index\.html)?/, hash.replace(/^page\//, '')) ;
+      return hash.replace(/^page\//, '');
+    }
+  }
+  $('[data-ajax-content=true]').ace_ajax(demo_ajax_options)
+  //  $(function () {
+  //    $.app.initIndex();
+  //  });
 </script>

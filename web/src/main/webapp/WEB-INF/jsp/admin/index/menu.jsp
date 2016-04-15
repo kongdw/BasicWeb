@@ -21,7 +21,7 @@
       </c:when>
       <c:otherwise>
         <li>
-          <a href="#">
+          <a href="#page/${m.url}" data-url="page${m.url}">
             <i class="menu-icon fa <c:choose><c:when test="${not empty m.icon}">${m.icon}</c:when><c:otherwise>fa-caret-right</c:otherwise></c:choose>"></i>
             <span class="menu-text">${m.name}</span>
           </a>

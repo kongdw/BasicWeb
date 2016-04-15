@@ -429,7 +429,7 @@
 		content_url: false,
 		default_url: false,
 		loading_icon: 'fa fa-spin fa-spinner fa-2x orange',
-		loading_text: '',
+		loading_text: '页面加载中......',
 		loading_overlay: null,
 		update_breadcrumbs: true,
 		update_title: true,
