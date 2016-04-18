@@ -2,33 +2,6 @@
 <%@include file="/WEB-INF/jsp/common/taglibs.jspf"%>
 <k:contentHeader/>
 <%@include file="/WEB-INF/jsp/common/import-calendar-css.jspf"%>
-<style>
-
-    legend {
-        cursor: pointer;
-    }
-    .fc-button-add {
-        margin-right: 10px!important;
-    }
-
-    #loading {
-        position: absolute;
-        top: 5px;
-        right: 5px;
-    }
-
-    .ui-dialog {
-        overflow: visible!important;
-    }
-    .ui-dialog-content {
-        overflow: visible!important;
-    }
-
-    #calendar {
-        width: 750px;
-        margin: 0 auto;
-    }
-</style>
 <div  style="margin: 5px;margin-top: 10px;">
     <div class="row-fluid tool ui-toolbar">
         <div style="padding-left: 10px;">
@@ -83,6 +56,5 @@
             }
         });
         $.app.initCalendar();
-
     })
 </script>

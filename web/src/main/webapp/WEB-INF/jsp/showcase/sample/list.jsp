@@ -1,8 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/WEB-INF/jsp/common/taglibs.jspf"%>
-<k:contentHeader/>
 <div data-table="table" class="panel">
-
   <ul class="nav nav-tabs">
     <li ${empty param['search.show_eq'] ? 'class="active"' : ''}>
       <a href="${ctx}/showcase/sample">
@@ -56,5 +54,3 @@
   <%@include file="listTable.jsp"%>
 
 </div>
-
-<k:contentFooter/>

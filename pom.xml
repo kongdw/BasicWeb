@@ -660,6 +660,12 @@
             <artifactId>jsoup</artifactId>
             <version>${jsoup.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.sitemesh</groupId>
+            <artifactId>sitemesh</artifactId>
+            <version>${sitemesh.version}</version>
+        </dependency>
     </dependencies>
 
     <properties>
@@ -718,6 +724,7 @@
         <jcaptcha.version>2.0-alpha-1</jcaptcha.version>
 
         <jsoup.version>1.7.3</jsoup.version>
+        <sitemesh.version>3.0.0</sitemesh.version>
     </properties>
 
     <repositories>

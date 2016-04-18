@@ -27,5 +27,5 @@
 <script src="${ctx}/static/js/ace/ace.settings-skin.js"></script>
 <script src="${ctx}/static/js/ace/ace.widget-on-reload.js"></script>
 <script src="${ctx}/static/js/ace/ace.searchbox-autocomplete.js"></script>
-<script src="${ctx}/static/js/application.js"></script>
+<%--<script src="${ctx}/static/js/application.js"></script>--%>
 <script type="text/javascript"> ace.vars['base'] = '..'; var ctx = '${ctx}'; </script>

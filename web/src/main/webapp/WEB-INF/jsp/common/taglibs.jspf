@@ -11,3 +11,4 @@
 <%@taglib prefix="maintain" tagdir="/WEB-INF/tags/maintain" %>
 <%@taglib prefix="kform" uri="http://www.k0n9.com/tags/k0n9-form" %>
 <%@taglib prefix="kfn" uri="http://www.k0n9.com/tags/k0n9-functions" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
