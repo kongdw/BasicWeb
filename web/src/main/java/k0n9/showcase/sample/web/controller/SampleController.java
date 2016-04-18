@@ -2,6 +2,8 @@
 package k0n9.showcase.sample.web.controller;
 
 import k0n9.common.entity.enums.BooleanEnum;
+import k0n9.common.entity.search.Searchable;
+import k0n9.common.web.bind.annotation.PageableDefaults;
 import k0n9.common.web.controller.BaseCRUDController;
 import k0n9.common.web.validate.ValidateResponse;
 import k0n9.showcase.sample.entity.Sample;
@@ -93,6 +95,14 @@ public class SampleController extends BaseCRUDController<Sample, Long> {
         }
         return response.result();
     }
+    @RequestMapping(value = "tabs",method = RequestMethod.GET)
+    @PageableDefaults(sort = "id=desc")
+    public String tabs(Searchable searchable, Model model) {
 
+        if (permissionList != null) {
+            this.permissionList.assertHasViewPermission();
+        }
+        return viewName("tabs");
+    }
 
 }

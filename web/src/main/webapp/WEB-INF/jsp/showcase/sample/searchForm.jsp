@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="form-group" style="margin-left: 5px;">
-          <kform:label path="search.id_in" cssClass="control-label">编号:</kform:label>
+          <kform:label path="search.id_in" cssClass="control-label inline">编号:</kform:label>
           <kform:input path="search.id_in" cssClass="form-control input-sm" placeholder="多个使用空格分隔"/>
         </div>
         <div class="form-group" style="margin-left: 20px;">

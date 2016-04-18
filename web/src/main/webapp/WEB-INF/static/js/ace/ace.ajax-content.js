@@ -427,7 +427,7 @@
 	
 	$.fn.aceAjax.defaults = $.fn.ace_ajax.defaults = {
 		content_url: false,
-		default_url: false,
+		default_url: 'page/admin/welcome',
 		loading_icon: 'fa fa-spin fa-spinner fa-2x orange',
 		loading_text: '页面加载中......',
 		loading_overlay: null,

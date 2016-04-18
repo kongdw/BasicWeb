@@ -52,4 +52,5 @@
     </c:forEach>
     </tbody>
 </table>
+<k:page page="${page}"/>
 
