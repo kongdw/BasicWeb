@@ -9,6 +9,7 @@ import k0n9.common.web.validate.ValidateResponse;
 import k0n9.showcase.sample.entity.Sample;
 import k0n9.showcase.sample.entity.Sex;
 import k0n9.showcase.sample.service.SampleService;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.Assert;
@@ -22,7 +23,7 @@ import java.util.Date;
 
 /**
  * @author David Kong
- * <p>Date: 13-1-28 下午4:29
+ *         <p>Date: 13-1-28 下午4:29
  * @version 1.0
  */
 @Controller
@@ -95,7 +96,8 @@ public class SampleController extends BaseCRUDController<Sample, Long> {
         }
         return response.result();
     }
-    @RequestMapping(value = "tabs",method = RequestMethod.GET)
+
+    @RequestMapping(value = "tabs", method = RequestMethod.GET)
     @PageableDefaults(sort = "id=desc")
     public String tabs(Searchable searchable, Model model) {
 
@@ -105,4 +107,10 @@ public class SampleController extends BaseCRUDController<Sample, Long> {
         return viewName("tabs");
     }
 
+    @RequestMapping(value = "list", method = RequestMethod.GET)
+    @PageableDefaults(sort = "id=desc")
+    @ResponseBody
+    public Page<Sample> findByPage(Searchable searchable) {
+        return baseService.findAll(searchable);
+    }
 }

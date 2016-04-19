@@ -10,7 +10,6 @@
 <script type="text/javascript">
   if('ontouchstart' in document.documentElement) document.write("<script src='${ctx}/static/js/jquery.mobile.custom.js'>"+"<"+"/script>");
 </script>
-<script src="${ctx}/static/js/bootstrap.js"></script>
 
 <!-- bootstrap & fontawesome -->
 <link rel="stylesheet" href="${ctx}/static/css/bootstrap.css" />
@@ -18,6 +17,8 @@
 
 <!-- page specific plugin styles -->
 <link rel="stylesheet" href="${ctx}/static/css/jquery-ui.css"/>
+<link rel="stylesheet" href="${ctx}/static/css/bootstrap-datepicker3.css" />
+<link rel="stylesheet" href="${ctx}/static/css/ui.jqgrid.css" />
 <!-- text fonts -->
 <link rel="stylesheet" href="${ctx}/static/css/ace-fonts.css" />
 

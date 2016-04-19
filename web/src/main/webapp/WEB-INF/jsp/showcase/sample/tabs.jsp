@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/WEB-INF/jsp/common/taglibs.jspf" %>
-<div id="tabs">
-  <ul>
+<div id="content-tabs">
+  <ul class="nav nav-tabs">
     <li>
       <a href="${ctx}/showcase/sample">
         <i class="icon-table"></i>
@@ -25,6 +25,6 @@
 </div>
 <script type="text/javascript">
   $(document).ready(function() {
-    $('#tabs').tabs();
+    $('#content-tabs').tabs();
   })
 </script>

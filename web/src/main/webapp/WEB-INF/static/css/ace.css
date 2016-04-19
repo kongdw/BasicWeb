@@ -59,7 +59,7 @@ body {
   background-color: #ffffff;
   position: relative;
   margin: 0;
-  padding: 8px 20px 24px;
+  padding: 8px 20px 4px;
 }
 .page-header {
   margin: 0 0 12px;
@@ -5209,7 +5209,7 @@ body.mob-safari .sidebar.sidebar-fixed {
   }
 }
 .footer {
-  padding-top: 75px;
+  padding-top: 45px;
   height: 0;
   width: 0;
 }
@@ -5343,8 +5343,8 @@ body.mob-safari .sidebar.sidebar-fixed {
   left: 12px;
   right: 12px;
   bottom: 4px;
-  padding: 8px;
-  line-height: 36px;
+  /*padding: 8px;*/
+  line-height: 33px;
   border-top: 3px double #E5E5E5;
 }
 .footer.footer-fixed .footer-inner {
@@ -17272,11 +17272,11 @@ img.editable-click:hover {
   background-color: #eff3f8;
 }
 .ui-jqgrid .ui-jqgrid-htable th span.ui-jqgrid-resize {
-  height: 45px !important;
+  height: 33px !important;
 }
 .ui-jqgrid .ui-jqgrid-htable th div {
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 .ui-jqgrid-hdiv .ui-jqgrid-htable {
   border-top: none;
@@ -17321,12 +17321,12 @@ img.editable-click:hover {
 }
 .ui-jqgrid .ui-jqgrid-pager {
   line-height: 15px;
-  height: 55px;
-  padding-top: 10px !important;
-  padding-bottom: 10px !important;
+  height: 33px;
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
   background-color: #eff3f8 !important;
-  border-bottom: 1px solid #E1E1E1 !important;
-  border-top: 1px solid #E1E1E1 !important;
+  /*border-bottom: 1px solid #E1E1E1 !important;*/
+  /*border-top: 1px solid #E1E1E1 !important;*/
 }
 .ui-jqgrid .ui-pg-input {
   font-size: inherit;
@@ -17352,7 +17352,7 @@ img.editable-click:hover {
   overflow: visible;
 }
 .ui-jqgrid .ui-pager-control {
-  height: 50px;
+  height: 33px;
   position: relative;
   padding-left: 9px;
   padding-right: 9px;
@@ -17378,7 +17378,7 @@ img.editable-click:hover {
   border-left: 1px solid #E1E1E1;
 }
 .ui-jqgrid .ui-jqgrid-bdiv {
-  border-top: 1px solid #E1E1E1;
+  border: 1px solid #E1E1E1;
   overflow-x: hidden;
 }
 .ui-jqgrid .loading {

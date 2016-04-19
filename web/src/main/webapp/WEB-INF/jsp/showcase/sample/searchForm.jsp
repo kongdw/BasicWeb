@@ -16,22 +16,24 @@
           <kform:input path="search.age_lt" cssClass="form-control input-sm" placeholder="小于"/>
         </div>
         <div class="btn-group pull-right">
-          <a class="btn btn-search">
-            <i class="icon-magnifier"></i>
+          <a class="btn btn-white btn-info btn-sm btn-search">
+            <i class="ace-icon glyphicon glyphicon-search"></i>
             查询
           </a>
-          <a class="btn accordion-toggle" data-toggle="collapse" href="#searchMore">
-            <i class="icon-magnifier-add"></i>
+          <a class="btn btn-white btn-info btn-sm  accordion-toggle" data-toggle="collapse" href="#searchMore">
+            <i class="ace-icon glyphicon glyphicon-zoom-in"></i>
             高级查询
           </a>
-          <a class="btn btn-clear-search">
-            <i class="icon-action-undo"></i>
+          <a class="btn btn-white btn-info btn-sm btn-clear-search">
+            <i class="ace-icon fa fa-undo"></i>
             清空
           </a>
         </div>
       </div>
     </div>
+
     <div class="row">
+      <div class="space-2"></div>
       <div class="col-md-12">
         <div id="searchMore" class="collapse">
           <div class="form-group" style="margin-left: 5px;">

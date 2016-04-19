@@ -1,17 +1,20 @@
 <!-- page specific plugin scripts -->
-
 <script src="${ctx}/static/js/jquery-ui.js"></script>
 <script src="${ctx}/static/js/jquery.ui.touch-punch.js"></script>
+<script src="${ctx}/static/js/bootstrap.js"></script>
+<script src="${ctx}/static/js/jqGrid/jquery.jqGrid.js"></script>
+<script src="${ctx}/static/js/jqGrid/i18n/grid.locale-cn.js"></script>
 <script src="${ctx}/static/js/moment.js"></script>
 <script src="${ctx}/static/js/bootbox.js"></script>
 <script src="${ctx}/static/js/jquery.blockUI.js"></script>
+<script src="${ctx}/static/js/date-time/bootstrap-datepicker.js"></script>
 <!-- ace scripts -->
 <script src="${ctx}/static/js/ace.js"></script>
 <script src="${ctx}/static/js/ace-elements.js"></script>
 <script src="${ctx}/static/js/ace-extra.js"></script>
 <script src="${ctx}/static/js/ace/ace.settings-skin.js"></script>
 
-<script src="${ctx}/static/js/application.js"></script>
+<%--<script src="${ctx}/static/js/application.js"></script>--%>
 <script type="text/javascript">
   ace.vars['base'] = '..'; var ctx = '${ctx}';
 </script>

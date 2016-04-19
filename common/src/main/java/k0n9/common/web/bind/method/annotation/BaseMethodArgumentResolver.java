@@ -54,6 +54,8 @@ public abstract class BaseMethodArgumentResolver implements HandlerMethodArgumen
         while (parameterNames.hasNext()) {
             String name = parameterNames.next();
             if (name.startsWith(namePrefix)) {
+                if(namePrefixLength == name.length())
+                    continue;
                 //page.pn  则截取 pn
                 if (subPrefix) {
                     char ch = name.charAt(namePrefix.length());

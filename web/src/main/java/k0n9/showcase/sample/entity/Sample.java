@@ -1,10 +1,17 @@
 
 package k0n9.showcase.sample.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import k0n9.common.entity.BaseEntity;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -33,6 +40,7 @@ public class Sample extends BaseEntity<Long> {
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name = "birthday")
     @Temporal(TemporalType.TIMESTAMP)
+    @JSONField(format="yyyy-MM-dd")
     private Date birthday;
 
     @Column(name = "sex")
